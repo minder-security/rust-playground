@@ -1,1 +1,0 @@
-C:\Users\minde\GitHub\rust-playground\pe_header_parsing\target\debug\pe_header_parsing.exe: C:\Users\minde\GitHub\rust-playground\pe_header_parsing\src\main.rs C:\Users\minde\GitHub\rust-playground\pe_header_parsing\src\pe_helper.rs
