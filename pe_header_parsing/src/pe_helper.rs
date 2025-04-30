@@ -6,7 +6,7 @@ use std::io::{Seek, Read, SeekFrom};
 pub struct DosHeader {
     pub e_magic: [u8; 2], 
     pub e_cblp: u16,
-    pub e_cp: u16,
+    pub e_cp: u16,  // Pages in File
     pub e_crlc: u16,
     pub e_cparhdr: u16,
     pub e_minalloc: u16,
@@ -107,6 +107,7 @@ pub fn parse_pe_header(file: &mut std::fs::File, offset: u32) -> io::Result<PeHe
         machine: u16::from_le_bytes([coff_header[0], coff_header[1]]),
         number_of_sections: u16::from_le_bytes([coff_header[2], coff_header[3]]),
         timestamp: u32::from_le_bytes([coff_header[4], coff_header[5], coff_header[6], coff_header[7]]),
+        pointer_to_symbol_table: u32::from_le_bytes([coff_header[8], coff_header[9], coff_header[10], coff_header[11]]),
         ..Default::default()
     };
 
